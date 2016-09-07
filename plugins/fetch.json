@@ -46,5 +46,30 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-QRCode": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-qrcode"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-qrscanner": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-qrscanner"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "br.com.brunogrossi.MediaScannerPlugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/begrossi/MediaScannerPlugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

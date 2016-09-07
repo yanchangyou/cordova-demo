@@ -7,25 +7,34 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
-        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
-        },
-        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
         "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-QRCode": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "br.com.brunogrossi.MediaScannerPlugin": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
+            "PACKAGE_NAME": "org.cordova.helloworld"
         }
     }
 }

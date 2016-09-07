@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="cordova-plugin-qrscanner"
+        version="2.1.1">
+
+  <name>QRScanner</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/QRScanner.js" target="js/QRScanner.js"/>
+
+  <js-module src="www/QRScanner.js" name="QRScanner">
+    <clobbers target="QRScanner" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="QRScanner">
+        <param name="android-package" value="com.bitpay.cordova.qrscanner.QRScanner"/>
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.CAMERA" android:required="false" />
+        <uses-feature android:name="android.hardware.camera" android:required="false" />
+        <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+    </config-file>
+    <source-file src="src/android/QRScanner.java" target-dir="src/com/bitpay/cordova/qrscanner"/>
+    <dependency id="cordova-plugin-compat" version="^1.0.0" />
+    <framework src="src/android/qrscanner.gradle" custom="true" type="gradleReference"/>
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="QRScanner">
+        <param name="ios-package" value="QRScanner"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/QRScanner-Bridging-Header.h" />
+    <source-file src="src/ios/QRScanner.swift"/>
+  </platform>
+
+  <platform name="browser">
+      <config-file target="config.xml" parent="/*">
+          <feature name="QRScanner">
+              <param name="browser-package" value="QRScanner" />
+          </feature>
+      </config-file>
+      <js-module src="src/browser/QRScannerProxy.js" name="QRScannerProxy">
+          <runs />
+      </js-module>
+      <source-file src="src/browser/worker.js" target-dir="platform_www/plugins/cordova-plugin-qrscanner/src/browser" />
+      <source-file src="src/browser/qrcode-reader.js" target-dir="platform_www/plugins/cordova-plugin-qrscanner/src/browser" />
+      <js-module src="src/browser/adapter.js" name="AdapterJs">
+          <clobbers target="window.getUserMedia" />
+      </js-module>
+  </platform>
+
+</plugin>

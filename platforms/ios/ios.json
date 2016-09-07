@@ -17,15 +17,23 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"QRCode\"><param name=\"ios-package\" value=\"CDVQRCode\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"QRScanner\"><param name=\"ios-package\" value=\"QRScanner\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -50,22 +58,31 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
-        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "i.cordova.helloworld"
-        },
-        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
         "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-QRCode": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "org.cordova.helloworld"
+        },
+        "br.com.brunogrossi.MediaScannerPlugin": {
             "PACKAGE_NAME": "org.cordova.helloworld"
         }
     },
@@ -104,6 +121,14 @@
             ]
         },
         {
+            "id": "cordova-plugin-device.device",
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
             "id": "cordova-plugin-vibration.notification",
             "file": "plugins/cordova-plugin-vibration/www/vibration.js",
             "pluginId": "cordova-plugin-vibration",
@@ -113,28 +138,47 @@
             ]
         },
         {
-            "id": "cordova-plugin-device.device",
-            "file": "plugins/cordova-plugin-device/www/device.js",
-            "pluginId": "cordova-plugin-device",
-            "clobbers": [
-                "device"
-            ]
-        },
-        {
             "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
             "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
             "pluginId": "phonegap-plugin-barcodescanner",
             "clobbers": [
                 "cordova.plugins.barcodeScanner"
             ]
+        },
+        {
+            "id": "cordova-plugin-QRCode.QRCode",
+            "file": "plugins/cordova-plugin-QRCode/www/QRCode.js",
+            "pluginId": "cordova-plugin-QRCode",
+            "clobbers": [
+                "QRCode"
+            ]
+        },
+        {
+            "id": "cordova-plugin-qrscanner.QRScanner",
+            "file": "plugins/cordova-plugin-qrscanner/www/QRScanner.js",
+            "pluginId": "cordova-plugin-qrscanner",
+            "clobbers": [
+                "QRScanner"
+            ]
+        },
+        {
+            "id": "br.com.brunogrossi.MediaScannerPlugin.MediaScannerPlugin",
+            "file": "plugins/br.com.brunogrossi.MediaScannerPlugin/www/MediaScannerPlugin.js",
+            "pluginId": "br.com.brunogrossi.MediaScannerPlugin",
+            "clobbers": [
+                "cordova.plugins.MediaScannerPlugin"
+            ]
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-camera": "2.2.0",
-        "cordova-plugin-vibration": "2.1.1",
         "cordova-plugin-device": "1.1.2",
-        "phonegap-plugin-barcodescanner": "6.0.1"
+        "cordova-plugin-vibration": "2.1.1",
+        "cordova-plugin-whitelist": "1.2.2",
+        "phonegap-plugin-barcodescanner": "6.0.1",
+        "cordova-plugin-compat": "1.0.0",
+        "cordova-plugin-QRCode": "1.1.1-dev",
+        "cordova-plugin-qrscanner": "2.1.1",
+        "br.com.brunogrossi.MediaScannerPlugin": "0.1.3"
     }
 }

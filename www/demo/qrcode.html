@@ -11,38 +11,79 @@
         </div>
         <div class="header">二维码</div>
         <div class="main">
-            <div class="code">cordova plugin add phonegap-plugin-barcodescanner</div>
-            <button id = "scan">scan</button>
+            <div class="code">cordova plugin add cordova-plugin-qrcode</div>
+            <button id = "scan1">scan1</button>
+            <button id = "scan2">scan2</button>
             
         </div>
         <script>
-            document.getElementById("scan").addEventListener("click", scan);
             
-            function scan() {
-                cordova.plugins.barcodeScanner.scan(
-                                                    function (result) {
-                                                    alert("We got a barcode\n" +
-                                                          "Result: " + result.text + "\n" +
-                                                          "Format: " + result.format + "\n" +
-                                                          "Cancelled: " + result.cancelled);
-                                                    },
-                                                    function (error) {
-                                                    alert("Scanning failed: " + error);
-                                                    },
-                                                    {
-                                                    "preferFrontCamera" : false, // iOS and Android
-                                                    "showFlipCameraButton" : true, // iOS and Android 
-                                                    "prompt" : "Place a barcode inside the scan area", // supported on Android only 
-                                                    "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED 
-                                                    "orientation" : "landscape" // Android only (portrait|landscape), default unset so it rotates with the device 
-                                                    }
-                                                    );
+            document.getElementById("scan1").addEventListener("click", scan1);
+            
+            function scan1() {
+                QRCode.scanCode(success);
+                
+                function success(info) {
+                    alert(info);
+                }
             }
+        
+        
+       
+        
+        document.getElementById("scan2").addEventListener("click", scan2);
+        
+        function scan2() {
+            
+            QRScanner.prepare(onDone); // show the prompt
+            
+            function onDone(err, status){
+                if (err) {
+                    // here we can handle errors and clean up any loose ends.
+                    console.error(err);
+                }
+                if (status.authorized) {
+                    // W00t, you have camera access and the scanner is initialized.
+                } else if (status.denied) {
+                    // The video preview will remain black, and scanning is disabled. We can
+                    // try to ask the user to change their mind, but we'll have to send them
+                    // to their device settings with `QRScanner.openSettings()`.
+                } else {
+                    // we didn't get permission, but we didn't get denied. (On Android, a denial
+                    // isn't permanent unless the user checks the "Don't ask again" box.)
+                    // We can ask again at the next relevant opportunity.
+                }
+            }
+            
+            QRScanner.show();
+            // Be sure to make any opaque HTML elements transparent here to avoid
+            // covering the video.
+            
+            // Start a scan. Scanning will continue until something is detected or
+            // `QRScanner.cancelScan()` is called.
+            QRScanner.scan(displayContents);
+            
+            function displayContents(err, text){
+                if(err){
+                    // an error occurred, or the scan was canceled (error code `6`)
+                } else {
+                    // The scan completed, display the contents of the QR code: 
+                    alert(text);
+                }
+            }
+        }
         
         
         </script>
         
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../js/index.js"></script>
+        
+        
+        <script>
+            
+           
+        </script>
+            
     </body>
 </html>
