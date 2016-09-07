@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>camera</title>
+        <link rel="stylesheet" type="text/css" href="../css/demo.css">
+        
+    </head>
+    <body>
+        <div class="return">
+            <a href="../index.html">返回</a>
+        </div>
+        <div class="header">震动⚡️</div>
+        <div class="main">
+            <div class="code">cordova plugin add cordova-plugin-vibration</div>
+            <button id = "vibration">VIBRATION</button>
+            <button id = "vibrationPattern">PATTERN</button>
+            
+        </div>
+        <script>
+            document.getElementById("vibration").addEventListener("click", vibration);
+            document.getElementById("vibrationPattern").addEventListener("click", vibrationPattern);
+            
+            function vibration() {
+                var time = 5000;
+                for(var i=0;i<20;i++){
+                    setTimeout(function(){
+                               navigator.vibrate(time);
+                               },i*1.2*1000);
+                    
+                }
+            }
+        
+            function vibrationPattern() {
+                var pattern = [3000, 3000, 3000, 3000];
+                navigator.vibrateWithPattern(pattern,10);
+            }
+        
+        </script>
+        
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>

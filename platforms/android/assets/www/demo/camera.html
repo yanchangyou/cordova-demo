@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>camera</title>
+        <link rel="stylesheet" type="text/css" href="../css/demo.css">
+        
+    </head>
+    <body>
+        <div class="return">
+            <a href="../index.html">返回</a>
+        </div>
+        <div class="header">摄像头📷</div>
+        <div class="main">
+            <div class="code">cordova plugin add cordova-plugin-camera</div>
+            <button id = "cameraTakePicture">TAKE PICTURE</button>
+            <div>
+                <img id = "myImage" style="width:400px;height:600px;"></img>
+            </div>
+            
+        </div>
+        <script>
+            document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
+            function cameraTakePicture() {
+                navigator.camera.getPicture(onSuccess, onFail, {
+                                            quality: 100,
+                                            destinationType: Camera.DestinationType.DATA_URL,
+                                            targetWidth:400,
+                                            targetHeight:600
+                                            });
+            }
+            function onSuccess(imageData) {
+                var image = document.getElementById('myImage');
+                image.src = "data:image/jpeg;base64," + imageData;
+            }
+        
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+
+        </script>
+        
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>
